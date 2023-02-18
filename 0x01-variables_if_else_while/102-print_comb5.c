@@ -14,7 +14,11 @@ int main(void)
 	{
 		for (y = x + 1 ; y < 100 ; y++)
 		{
-			printf("%02d %02d, ", x, y);
+			printf("%02d %02d", x, y);
+			if (y != 99 || x != 98)
+			{
+				printf(", ");
+			}
 		}
 	}
 	putchar('\n');
