@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * print_sign - This function prints the sign
- * of a number
+ * print_sign - Prints the sign of a number
  *
- * Return: 1 if c is a letter, 0 otherwise
+ * @n: The number to check the sign of
+ *
+ * Return: 1 if n is more than zero, 0 if n is zero, -1 if n is less than zero
  */
 int print_sign(int n)
 {
