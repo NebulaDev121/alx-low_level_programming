@@ -15,33 +15,26 @@
  */
 int main(void)
 {
-	char password[7];
-	int i, ascii_value;
+	int pass[100];
+	int i, sum, n;
+
+	sum = 0;
 
 	srand(time(NULL));
 
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < 100; i++)
 	{
-		ascii_value = rand() % 62;
-
-		if (ascii_value < 26)
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
 		{
-			password[i] = 'a' + ascii_value;
-		}
-		else if (ascii_value < 52)
-		{
-			password[i] = 'A' + (ascii_value - 26);
-		}
-		else
-		{
-			password[i] = '0' + (ascii_value - 52);
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
 		}
 	}
-
-	password[5] = rand() % 10 + '0';
-	password[6] = '\0';
-
-	printf("%s", password);
 
 	return (0);
 }
