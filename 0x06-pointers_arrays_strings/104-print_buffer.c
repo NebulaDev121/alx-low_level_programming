@@ -1,16 +1,23 @@
+#include "main.h"
 #include <stdio.h>
+#include <ctype.h>
 
 /**
- * print_buffer - Prints the content of size bytes of the buffer pointed by b
- *
- * @b: pointer to buffer
- * @size: number of bytes to print
+ * print_buffer - Prints the content of a buffer
+ * @b: The buffer to be printed
+ * @size: The size of the buffer to be printed
  *
  * Return: void
  */
 void print_buffer(char *b, int size)
 {
 	int i, j;
+
+	if (size <= 0)
+	{
+		printf("\n");
+		return;
+	}
 
 	for (i = 0; i < size; i += 10)
 	{
@@ -19,40 +26,27 @@ void print_buffer(char *b, int size)
 		for (j = i; j < i + 10; j++)
 		{
 			if (j < size)
-			{
-				printf("%02x", b[j]);
-			} else
-			{
+				printf("%02x", *(b + j));
+			else
 				printf("  ");
-			}
 
-			if (j % 2)
-			{
+			if (j % 2 != 0)
 				printf(" ");
-			}
+
 		}
 
 		for (j = i; j < i + 10; j++)
 		{
 			if (j >= size)
-			{
-				printf(" ");
-			}
-			else if (b[j] >= ' ' && b[j] <= '~')
-			{
-				printf("%c", b[j]);
-			}
+				break;
+
+			if (isprint(*(b + j)))
+				printf("%c", *(b + j));
 			else
-			{
 				printf(".");
-			}
+
 		}
 
-		printf("\n");
-	}
-
-	if (size <= 0)
-	{
 		printf("\n");
 	}
 }
