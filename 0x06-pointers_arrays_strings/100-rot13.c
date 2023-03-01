@@ -12,25 +12,20 @@ char *rot13(char *s)
 	int i, j;
 	char *encoded = s;
 
-	for (i = 0; s[i]; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < 13 && s[i]; j++)
+		if (s[i] >= 'a' && s[i] <= 'z')
 		{
-			if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
-			{
-				encoded[i] = s[i] + 13;
-			}
-			else if ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
-			{
-				encoded[i] = s[i] - 13;
-			}
-			else
-			{
-				encoded[i] = s[i];
-			}
-			i++;
+			j = s[i] - 'a';
+			j = (j + 13) % 26;
+			encoded[i] = 'a' + j;
 		}
-		i--;
+		else if (s[i] >= 'A' && s[i] <= 'Z')
+		{
+			j = s[i] - 'A';
+			j = (j + 13) % 26;
+			encoded[i] = 'A' + j;
+		}
 	}
 
 	return (encoded);
