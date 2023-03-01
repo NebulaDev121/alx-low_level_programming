@@ -9,24 +9,16 @@
  */
 char *rot13(char *s)
 {
-	int i, j;
-	char *encoded = s;
+	int i;
+	char c;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
-		{
-			j = s[i] - 'a';
-			j = (j + 13) % 26;
-			encoded[i] = 'a' + j;
-		}
-		else if (s[i] >= 'A' && s[i] <= 'Z')
-		{
-			j = s[i] - 'A';
-			j = (j + 13) % 26;
-			encoded[i] = 'A' + j;
-		}
+		c = s[i];
+		if ((c >= 'a' && c <= 'm') || (c >= 'A' && c <= 'M'))
+			s[i] += 13;
+		else if ((c >= 'n' && c <= 'z') || (c >= 'N' && c <= 'Z'))
+			s[i] -= 13;
 	}
-
-	return (encoded);
+	return (s);
 }
