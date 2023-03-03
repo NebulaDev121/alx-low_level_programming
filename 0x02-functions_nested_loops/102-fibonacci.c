@@ -7,20 +7,24 @@
  */
 int main(void)
 {
-	int a = 1, b = 2, c, i;
+	int i;
+	int fib[50];
 
-	printf("%d, %d", a, b);
+	fib[0] = 1;
+	fib[1] = 2;
 
-		for (i = 2; i < 50; i++)
+	for (i = 2; i < 50; i++)
+	{
+		fib[i] = fib[i - 1] + fib[i - 2];
+	}
+	for (i = 0; i < 50; i++)
+	{
+		printf("%d", fib[i]);
+		if (i < 49)
 		{
-			c = a + b;
-
-			printf(", %d", c);
-
-			a = b;
-			b = c;
+			printf(", ");
 		}
-
+	}
 	printf("\n");
 
 	return (0);
