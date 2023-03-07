@@ -1,3 +1,2 @@
-| [File Names]                   | [Script Description]                                                                                      |
-| ------------------------------ | :-------------------------------------------------------------------------------------------------------- |
-| 0-puts_recursion.c             |  ✓ Write a function that prints a string, followed by a new line.                                         |
+# alx-low_level_programming
+This repository contains elementary codes in C Programming Language
